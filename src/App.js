@@ -1,24 +1,43 @@
-import logo from './logo.svg';
 import './App.css';
-
+import MyNavbar from "./components/myNavbar";
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import Footer from "./components/footer";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route
+} from "react-router-dom";
+import Home from "./pages/home";
+import AboutMe from "./pages/aboutMe";
+import Experience from "./pages/experience";
+import Tictactoe from "./pages/tictactoe";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Router>
+        <div className="App" style={{display:"flex" ,flexDirection:"column",minHeight:"100vh"}}>
+          <MyNavbar/>
+            <div style={{marginTop:"4rem"}}>
+                <Switch>
+                    <Route path="/about">
+                        <AboutMe/>
+                    </Route>
+                    <Route path="/experience">
+                        <Experience/>
+                    </Route>
+                    <Route path="/cv">
+                        <h1>This users</h1>
+                    </Route>
+                    <Route path="/demo/adv-tic-tac-toe">
+                        <Tictactoe/>
+                    </Route>
+                    <Route  exact={true} path="/">
+                        <Home/>
+                    </Route>
+                </Switch>
+            </div>
+           <Footer/>
+        </div>
+      </Router>
   );
 }
 
