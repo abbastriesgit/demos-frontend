@@ -21,7 +21,7 @@ function TicTacTowApiCalls(setIsPending,getStateFromResponse,state){
         });
     }
     const restart = () => {
-        const url = urls.ttt.b.base + urls.ttt.b.restart;
+        const url = urls.ttt.b.base + urls.ttt.b.restart + "?gameId=" + state.gameId + "&player=" + state.player;
         setIsPending(true);
         fetch(url,{
             method:'POST',
