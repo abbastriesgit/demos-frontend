@@ -20,21 +20,21 @@ function AboutMe(){
                     Skills
                 </Card.Title>
                 <div>
-                    <a style={{ marginLeft:"10px",marginRight:"10px"}} >
-                        <img  height={height} width={width} src={docker}/>
-                    </a>
-                    <a style={{ marginLeft:"10px",marginRight:"10px"}} >
-                        <img  height={height} width={width}  src={java}/>
-                    </a>
-                    <a style={{ marginLeft:"10px",marginRight:"10px"}} >
-                        <img  height={height} width={width}  src={mysql}/>
-                    </a>
-                    <a style={{ marginLeft:"10px",marginRight:"10px"}} >
-                        <img  height={height} width={width}  src={kafka}/>
-                    </a>
-                    <a style={{ marginLeft:"10px",marginRight:"10px"}}  >
-                        <img  height={height} width={width}  src={spring}/>
-                    </a>
+                    <span style={{ marginLeft:"10px",marginRight:"10px"}} >
+                        <img alt={"Docker"} height={height} width={width} src={docker}/>
+                    </span>
+                    <span style={{ marginLeft:"10px",marginRight:"10px"}} >
+                        <img  alt={"Java"} height={height} width={width}  src={java}/>
+                    </span>
+                    <span style={{ marginLeft:"10px",marginRight:"10px"}} >
+                        <img  alt={"MySql"} height={height} width={width}  src={mysql}/>
+                    </span>
+                    <span style={{ marginLeft:"10px",marginRight:"10px"}} >
+                        <img alt={"Kafka"} height={height} width={width}  src={kafka}/>
+                    </span>
+                    <span style={{ marginLeft:"10px",marginRight:"10px"}}  >
+                        <img alt={"Spring Boot"} height={height} width={width}  src={spring}/>
+                    </span>
                 </div>
             </div>
         </div>

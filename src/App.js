@@ -11,6 +11,7 @@ import Home from "./pages/home";
 import AboutMe from "./pages/aboutMe";
 import Experience from "./pages/experience";
 import Tictactoe from "./pages/tictactoe";
+import TictactoeJoin from "./pages/tictactoeJoin";
 function App() {
   return (
       <Router>
@@ -27,8 +28,11 @@ function App() {
                     <Route path="/cv">
                         <h1>This users</h1>
                     </Route>
-                    <Route path="/demo/adv-tic-tac-toe">
+                    <Route exact={true} path="/demo/adv-tic-tac-toe">
                         <Tictactoe/>
+                    </Route>
+                    <Route path="/demo/adv-tic-tac-toe/join/:id">
+                        <TictactoeJoin/>
                     </Route>
                     <Route  exact={true} path="/">
                         <Home/>

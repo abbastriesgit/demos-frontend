@@ -1,8 +1,7 @@
 
-function TtBox({color,number,selected,onClick,id}){
-console.log(selected)
+function TtBox({color,number,selected,onClick,index}){
     if(selected){
-        return <div  onClick={()=>onClick(id)} style={{backgroundColor:color,color:"#272727",
+        return <div  onClick={()=>onClick(index)} style={{backgroundColor:color,color:"#272727",
             display:"flex",verticalAlign:"middle",
             width:"5rem",height:"5rem",margin:"1px",
             border:"3px solid green"}}>
@@ -10,7 +9,7 @@ console.log(selected)
         </div>
     }
     return(
-        <div className={"zoom"} onClick={()=>onClick(id)} style={{backgroundColor:color,color:"#272727",
+        <div className={"zoom"} onClick={()=>onClick(index)} style={{backgroundColor:color,color:"#272727",
                  display:"flex",verticalAlign:"middle",
                  width:"5rem",height:"5rem",margin:"1px",
                  border:"3px solid grey"}}>

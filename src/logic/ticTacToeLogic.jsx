@@ -1,5 +1,5 @@
 import {useState} from "react";
-import colors from "../constants/colors";
+import colors from "../constants/colors.jsx";
 import TttJsonFields from "../constants/tttJsonFields";
 import TicTacTowApiCalls from "../api_calls/ticTacToeApiCalls";
 function TicTacTowLogic(){
@@ -8,24 +8,28 @@ function TicTacTowLogic(){
         let newBoxes = res[TttJsonFields.boxStateList];
         for(let i = 0;i<9;i++){
             newBoxes[i]["index"] = i;
+            newBoxes[i]["key"] = i+9;
+            newBoxes[i]["color"] = getColor(newBoxes[i])
         }
         let cards = res[TttJsonFields.myCards];
         for(let i = 0;i<6;i++){
             cards[i]["index"] = i;
-            cards[i]["color"] = colors.myCard
+            cards[i]["key"] = i;
+            cards[i]["color"] = colors.ttt.myCard
             cards[i]["selected"] = false
         }
         cards = res[TttJsonFields.otherPlayersCards];
         for(let i = 0;i<6;i++){
             cards[i]["index"] = i;
-            cards[i]["color"] = colors.theirCard
+            cards[i]["key"] = i+6;
+            cards[i]["color"] = colors.ttt.theirCard
             cards[i]["selected"] = false
         }
         res["created"] = true;
         localStorage.setItem("ttt_game_state",JSON.stringify(res))
         setState(res);
+        console.log(state.iwon)
     }
-    let {create} = TicTacTowApiCalls(setIsPending,getStateFromResponse);
     let [state ,setState] = useState({
         "gameId": "",
         "boxStateList": [
@@ -33,47 +37,65 @@ function TicTacTowLogic(){
                 "size": 0,
                 "player": -1,
                 "isEmpty": true,
-                "index": 0
+                "index": 0,
+                "key":0,
+                "color":colors.ttt.emptyCard
             },{
                 "size": 0,
                 "player": -1,
                 "isEmpty": true,
-                "index": 0
+                "index": 1,
+                "key":1,
+                "color":colors.ttt.emptyCard
             },{
                 "size": 0,
                 "player": -1,
                 "isEmpty": true,
-                "index": 0
+                "index": 2,
+                "key":2,
+                "color":colors.ttt.emptyCard
             },{
                 "size": 0,
                 "player": -1,
                 "isEmpty": true,
-                "index": 0
+                "index": 3,
+                "key":3,
+                "color":colors.ttt.emptyCard
             },{
                 "size": 0,
                 "player": -1,
                 "isEmpty": true,
-                "index": 0
+                "index": 4,
+                "key":4,
+                "color":colors.ttt.emptyCard
             },{
                 "size": 0,
                 "player": -1,
                 "isEmpty": true,
-                "index": 0
+                "index": 5,
+                "key":5,
+                "color":colors.ttt.emptyCard
             },{
                 "size": 0,
                 "player": -1,
                 "isEmpty": true,
-                "index": 0
+                "index": 6,
+                "key":6,
+                "color":colors.ttt.emptyCard
             },{
                 "size": 0,
                 "player": -1,
                 "isEmpty": true,
-                "index": 0
+                "index": 7,
+                "key":7,
+                "color":colors.ttt.emptyCard
             },{
                 "size": 0,
                 "player": -1,
                 "isEmpty": true,
-                "index": 0
+                "index": 8,
+                "key":8,
+                "color":colors.ttt.emptyCard
             }
         ],
         "myCards": [
@@ -82,38 +104,44 @@ function TicTacTowLogic(){
                 "left": true,
                 "selected":false,
                 "index": 0,
-                "color": colors.myCard
+                "color": colors.ttt.myCard,
+                "key":"0"
             },
             {
                 "size": 1,
                 "left": true,
                 "selected":false,
                 "index": 1,
-                "color": colors.myCard
+                "color": colors.ttt.myCard,
+                "key":"1"
             },{
                 "size": 2,
                 "left": true,
                 "selected":false,
                 "index": 2,
-                "color": colors.myCard
+                "color": colors.ttt.myCard,
+                "key":"2"
             },{
                 "size": 2,
                 "left": true,
                 "selected":false,
                 "index": 3,
-                "color": colors.myCard
+                "color": colors.ttt.myCard,
+                "key":"3"
             },{
                 "size": 3,
                 "left": true,
                 "selected":false,
                 "index": 4,
-                "color": colors.myCard
+                "color": colors.ttt.myCard,
+                "key":"4"
             },{
                 "size": 3,
                 "left": true,
                 "selected":false,
                 "index": 5,
-                "color": colors.myCard
+                "color": colors.ttt.myCard,
+                "key":"5"
             }
         ],
         "otherPlayersCards": [
@@ -122,38 +150,44 @@ function TicTacTowLogic(){
                 "left": true,
                 "selected":false,
                 "index": 0,
-                "color": colors.theirCard
+                "color": colors.ttt.theirCard,
+                "key":"0"
             },
             {
                 "size": 1,
                 "isLeft": true,
                 "selected":false,
                 "index": 0,
-                "color": colors.theirCard
+                "color": colors.ttt.theirCard,
+                "key":"1"
             },{
                 "size": 1,
                 "left": true,
                 "selected":false,
                 "index": 0,
-                "color": colors.theirCard
+                "color": colors.ttt.theirCard,
+                "key":"2"
             },{
                 "size": 1,
                 "left": true,
                 "selected":false,
                 "index": 0,
-                "color": colors.theirCard
+                "color": colors.ttt.theirCard,
+                "key":"3"
             },{
                 "size": 1,
                 "left": true,
                 "selected":false,
                 "index": 0,
-                "color": colors.theirCard
+                "color": colors.ttt.theirCard,
+                "key":"4"
             },{
                 "size": 1,
                 "left": true,
                 "selected":false,
                 "index": 0,
-                "color": colors.theirCard
+                "color": colors.ttt.theirCard,
+                "key":"5"
             }
         ],
         "gameStarted": false,
@@ -161,23 +195,22 @@ function TicTacTowLogic(){
         "gameFinished": false,
         "player": 1,
         "yourTurn": false,
-        "iWon": false
+        "iwon": false
     });
-    const createGame= () =>{
-        localStorage.clear();
-        create();
-    }
+    let {create,refresh,submit,restart} = TicTacTowApiCalls(setIsPending,getStateFromResponse,state);
+
     const handleSubmit = (id)=>{
         if(isPending)
             return;
-        console.log("submit"+id);
         let selectedCard = getSelectedCardSize()
+        console.log(selectedCard)
+        console.log(id)
         if(selectedCard === -1)
             return;
-
+        submit(id,selectedCard)
+        //todo
     }
     const handleClickOnCups = (id)=>{
-        console.log("click"+id);
         if(isPending)
             return;
         const newState = JSON.parse(JSON.stringify(state));
@@ -185,7 +218,6 @@ function TicTacTowLogic(){
             newState.myCards[i]["selected"]= false;
         newState.myCards[id]["selected"]= true;
         setState(newState)
-        console.log(state)
     }
     const getRow = (index)=> {
         let row = state.boxStateList.slice(index*3,index*3 + 3)
@@ -204,15 +236,18 @@ function TicTacTowLogic(){
     }
     const getColor=(box)=>{
         if(box.empty)
-            return colors.emptyCard;
-        if(box.player[box.player.length-1]===state.player){
-            return colors.myCard;
+            return colors.ttt.emptyCard;
+        console.log(box.player)
+        console.log(state.player)
+        if(box.player===state.player){
+            return colors.ttt.myCard;
         }
-        return colors.theirCard;
+        return colors.ttt.theirCard;
     }
 
     return {state,setState, handleSubmit,
-        handleClickOnCups,getRow,getColor,create,isPending
+        handleClickOnCups,getRow,create,
+        isPending,getStateFromResponse,refresh,restart
     };
 }
 export default TicTacTowLogic;

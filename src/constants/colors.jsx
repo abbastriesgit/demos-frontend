@@ -1,5 +1,8 @@
-let colors = {} ;
-colors["myCard"] = "#facf5a";
-colors["theirCard"] = "#49beb7";
-colors["emptyCard"] = "#5d5d5a";
+let colors = {
+    "ttt":{
+        "myCard" : "#facf5a",
+        "theirCard": "#49beb7",
+        "emptyCard" : "#e5e5c9"
+    }
+} ;
 export default colors;

@@ -13,12 +13,12 @@ function Footer(){
         // </div>
         <Navbar bg="dark" expand="lg" variant="dark" fixed={"bottom"}>
             <Container style={{display:'flex',alignItems:"flex-end",justifyContent:"flex-end"}}>
-                        <a style={{ marginLeft:"10px",marginRight:"10px"}} href={"https://www.linkedin.com/in/abbas-ali-58931a1ab/"} target = "_blank">
-                            <img  height="30px"  src={linkedIn}/>
-                        </a>
-                        <a href={"https://github.com/abbastriesgit"} target = "_blank">
-                            <img height="30px"  src={github}/>
-                        </a>
+                    <a style={{ marginLeft:"10px",marginRight:"10px"}} href={"https://www.linkedin.com/in/abbas-ali-58931a1ab/"} target = "_blank" rel="noreferrer">
+                        <img  height="30px" alt={"LinkedIn"}  src={linkedIn}/>
+                    </a>
+                    <a href={"https://github.com/abbastriesgit"} target = "_blank" rel="noreferrer">
+                        <img height="30px" alt={"Github"} src={github}/>
+                    </a>
             </Container>
         </Navbar>
     );

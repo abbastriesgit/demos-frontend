@@ -7,6 +7,6 @@ let TttJsonFields = {
     "gameFinished": "gameFinished",
     "player": "player",
     "yourTurn": "yourTurn",
-    "iWon": "iWon"
+    "iWon": "iwon"
 }
 export default TttJsonFields;

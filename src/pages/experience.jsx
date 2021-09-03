@@ -2,12 +2,6 @@ import {Card} from "react-bootstrap";
 
 
 function Experience() {
-    let height = "50rem";
-    let width = "130rem";
-    let first = "#1e6262";
-    let sec = "#30353b";
-    let thir = "#582233";
-    let fourht = "#430d27";
     return(
         <div style={{width:"75%",display:"flex",flexDirection:"column",textAlign :"left",margin:"auto",marginTop:"2%"}}>
             <Card.Text as={"h3"}>

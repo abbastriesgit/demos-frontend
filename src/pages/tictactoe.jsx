@@ -3,44 +3,124 @@ import Cups from "../components/ttt/cups";
 import TtRow from "../components/ttt/ttRow";
 import TicTacTowLogic from "../logic/ticTacToeLogic";
 import colors from "../constants/colors";
-import {Button} from "react-bootstrap";
+import {Button,Dropdown} from "react-bootstrap";
 import urls from "../constants/urls";
 function Tictactoe(){
     const {state,setState, handleSubmit,
         handleClickOnCups,getRow,
-        getColor,create,isPending
+        create,isPending,getStateFromResponse,refresh,restart
     } = TicTacTowLogic();
     useEffect(()=>{
         if(localStorage.getItem("ttt_game_state"))
             setState(JSON.parse(localStorage.getItem("ttt_game_state")));
-        },[]);
-    const renderButton = () =>{
+        },[setState]);
+    const renderCreateGameButton = () =>{
         if(isPending && !state.created){
-            return <Button style={{backgroundColor: colors.theirCard,color:"black",margin:"2rem"}} >Loading...</Button>
+            return <Button style={{backgroundColor: colors.ttt.theirCard,color:"black",margin:"2rem"}} >Loading...</Button>
         }
         if(!isPending && !state.created){
-            return <Button style={{backgroundColor: colors.theirCard,color:"black",margin:"2rem"}} onClick ={()=>create()} >Create New Game</Button>        }
+            return <Button style={{backgroundColor: colors.ttt.theirCard,color:"black",margin:"2rem"}} onClick ={()=>create()} >Create New Game</Button>        }
+        return null;
+    }
+    const renderRefresh = () =>{
+        if(isPending && state.created){
+            return <Button style={{backgroundColor: colors.ttt.myCard,color:"black",margin:"2rem"}} >Loading...</Button>
+        }
+        if(!isPending && state.created){
+            return <Button style={{backgroundColor: colors.ttt.myCard,color:"black",margin:"2rem"}} onClick ={()=>refresh()} >Refresh</Button>        }
         return null;
     }
     const renderUrl = () =>{
         if(state.created && !state.gameStarted) {
-            let link = urls.base_frontend + urls.ttt_join_game_fr + "?id=" + state.gameId;
-            return <div>
-                <div>{link}</div>
-                <br/>
+            let link = urls.ttt.f.base + urls.ttt.f.join + "/" + state.gameId;
+            return <div style={{
+                display:"flex",
+                flexDirection:"column",
+                backgroundColor:colors.ttt.theirCard,
+                border:"2px solid grey",
+                padding:"10px",
+                borderRadius:"5px"
+            }}>
+                <div style={{backgroundColor:"white",padding:"5px"}}>{link}</div>
                 <div>Share this link with your friends or Open in Incognito</div>
             </div>
         }
     }
+    const renderWaitForTurnMessage= ()=>{
+        if(state.gameStarted && !state.gameFinished){
+            let text = "Wait for your turn"
+            if(state.yourTurn)
+            {
+                text = "Your turn. Make your move."
+            }
+            return <div style={{
+                backgroundColor:colors.ttt.theirCard,
+                border:"2px solid grey",
+                padding:"10px",
+                borderRadius:"5px"
+            }}>
+                {text}
+            </div>
+        }
+    }
+    const renderWinMessage= ()=>{
+        if(state.gameFinished){
+            let text = "You Win"
+            let border = "5px solid green";
+            let color = "green";
+            if(!state.iwon)
+            {
+                text = "You Lose";
+                border = "5px solid red";
+                color = "red";
+            }
+            return <div style={{
+                display:"flex",
+                flexDirection:"column",
+                backgroundColor:colors.ttt.theirCard,
+                border:border,
+                color:color,
+                margin:'30px',
+                transform:"matrix(2,0,0,2,0,0)",
+                // matrix(scaleX(),skewY(),skewX(),scaleY(),translateX(),translateY())
+                padding:"10px",
+                borderRadius:"5px"
+            }}>
+                <div>{text}</div>
+            </div>
+        }
+    }
+    const renderMenu=()=>{
+        return (
+            <Dropdown style={{margin:"10px",marginLeft:"20px"}}>
+                <Dropdown.Toggle variant="success" id="dropdown-basic">
+                    Actions
+                </Dropdown.Toggle>
+                <Dropdown.Menu>
+                    <Dropdown.Item onClick={restart} >restart the game</Dropdown.Item>
+                    <Dropdown.Item onClick={create}>create new game</Dropdown.Item>
+                </Dropdown.Menu>
+            </Dropdown>
+        );
+    }
     return(
-        <div style={{display:"flex",margin:"auto",height:"80vh",flexDirection:"column",alignItems:"center"}}>
-            {renderButton()}
-            {renderUrl()}
-            <Cups states={state.myCards} onClick = {handleClickOnCups}/>
-            <TtRow states={getRow(0)} getColor={getColor} onClick = {handleSubmit}/>
-            <TtRow states={getRow(1)} getColor={getColor} onClick = {handleSubmit}/>
-            <TtRow states={getRow(2)} getColor={getColor} onClick = {handleSubmit}/>
-            <Cups states={state.otherPlayersCards} onClick = {(id)=>{}}/>
+        <div style={{textAlign:"left"}}>
+            <div style={{display:"flex",flexDirection:"row"}}>
+                {renderMenu()}
+
+            </div>
+            <div style={{display:"flex",margin:"auto",height:"80vh",flexDirection:"column",alignItems:"center"}}>
+                {renderCreateGameButton()}
+                {renderUrl()}
+                {renderWinMessage()}
+                <Cups states={state.myCards} onClick = {handleClickOnCups}/>
+                <TtRow states={getRow(0)}  onClick = {handleSubmit}/>
+                <TtRow states={getRow(1)} onClick = {handleSubmit}/>
+                <TtRow states={getRow(2)}  onClick = {handleSubmit}/>
+                <Cups states={state.otherPlayersCards} onClick = {(id)=>{}}/>
+                {renderWaitForTurnMessage()}
+                {renderRefresh()}
+            </div>
         </div>
     );
 }

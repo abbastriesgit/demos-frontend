@@ -1,7 +1,18 @@
-let urls = {} ;
-urls["base_backend"] = "http://localhost:8080";
-urls["base_frontend"] = "http://localhost:3000";
-urls["ttt_create_game"] = "/create";
-urls["ttt_join_game_fr"] = "/demo/adv-tic-tac-toe/join";
-
+let urls = {
+    "ttt":{
+        "f":{
+            "base":"http://localhost:3000",
+            "join":"/demo/adv-tic-tac-toe/join",
+            "home":"/demo/adv-tic-tac-toe"
+        },
+        "b":{
+            "base":"http://localhost:8080",
+            "create": "/create",
+            "join":"/join",
+            "state":"/state",
+            "move":"/move",
+            "restart":"/restart"
+        }
+    }
+} ;
 export default urls;
