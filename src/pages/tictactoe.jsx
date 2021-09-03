@@ -24,10 +24,10 @@ function Tictactoe(){
     }
     const renderRefresh = () =>{
         if(isPending && state.created){
-            return <Button style={{backgroundColor: colors.ttt.myCard,color:"black",margin:"2rem"}} >Loading...</Button>
+            return <Button style={{backgroundColor: colors.ttt.myCard,color:"black",margin:"10px"}} >Loading...</Button>
         }
         if(!isPending && state.created){
-            return <Button style={{backgroundColor: colors.ttt.myCard,color:"black",margin:"2rem"}} onClick ={()=>refresh()} >Refresh</Button>        }
+            return <Button style={{backgroundColor: colors.ttt.myCard,color:"black",margin:"10px"}} onClick ={()=>refresh()} >Refresh</Button>        }
         return null;
     }
     const renderUrl = () =>{
@@ -57,7 +57,8 @@ function Tictactoe(){
                 backgroundColor:colors.ttt.theirCard,
                 border:"2px solid grey",
                 padding:"10px",
-                borderRadius:"5px"
+                borderRadius:"5px",
+                marginBottom:"10px"
             }}>
                 {text}
             </div>
@@ -109,17 +110,18 @@ function Tictactoe(){
                 {renderMenu()}
 
             </div>
-            <div style={{display:"flex",margin:"auto",height:"80vh",flexDirection:"column",alignItems:"center"}}>
+            <div style={{display:"flex",margin:"auto",height:"100%",flexDirection:"column",alignItems:"center"}}>
                 {renderCreateGameButton()}
                 {renderUrl()}
+                {renderRefresh()}
                 {renderWinMessage()}
+                {renderWaitForTurnMessage()}
                 <Cups states={state.myCards} onClick = {handleClickOnCups}/>
                 <TtRow states={getRow(0)}  onClick = {handleSubmit}/>
                 <TtRow states={getRow(1)} onClick = {handleSubmit}/>
                 <TtRow states={getRow(2)}  onClick = {handleSubmit}/>
                 <Cups states={state.otherPlayersCards} onClick = {(id)=>{}}/>
-                {renderWaitForTurnMessage()}
-                {renderRefresh()}
+                <div style={{margin:"50px"}}></div>
             </div>
         </div>
     );
