@@ -1,19 +1,24 @@
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import Cups from "../components/ttt/cups";
 import TtRow from "../components/ttt/ttRow";
 import TicTacTowLogic from "../logic/ticTacToeLogic";
 import colors from "../constants/colors";
 import {Button,Dropdown} from "react-bootstrap";
 import urls from "../constants/urls";
+import TictactoeTut from "./tictactoeTut";
 function Tictactoe(){
     const {state,setState, handleSubmit,
         handleClickOnCups,getRow,
-        create,isPending,getStateFromResponse,refresh,restart
+        create,isPending,getStateFromResponse,refresh,restart,tut,setTut
     } = TicTacTowLogic();
     useEffect(()=>{
         if(localStorage.getItem("ttt_game_state"))
             setState(JSON.parse(localStorage.getItem("ttt_game_state")));
-        },[setState]);
+        if(localStorage.getItem("ttt_game_tut"))
+            setTut(false);
+        else
+            setTut(true)
+    },[setState]);
     const renderCreateGameButton = () =>{
         if(isPending && !state.created){
             return <Button style={{backgroundColor: colors.ttt.theirCard,color:"black",margin:"2rem"}} >Loading...</Button>
@@ -100,15 +105,18 @@ function Tictactoe(){
                 <Dropdown.Menu>
                     <Dropdown.Item onClick={restart} >restart the game</Dropdown.Item>
                     <Dropdown.Item onClick={create}>create new game</Dropdown.Item>
+                    <Dropdown.Item onClick={()=>{localStorage.removeItem("ttt_game_tut");setTut(true)}}>Tutorial</Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
         );
+    }
+    if(tut){
+        return <TictactoeTut setTut={setTut}/>
     }
     return(
         <div style={{textAlign:"left"}}>
             <div style={{display:"flex",flexDirection:"row"}}>
                 {renderMenu()}
-
             </div>
             <div style={{display:"flex",margin:"auto",height:"100%",flexDirection:"column",alignItems:"center"}}>
                 {renderCreateGameButton()}

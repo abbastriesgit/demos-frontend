@@ -4,6 +4,7 @@ import TttJsonFields from "../constants/tttJsonFields";
 import TicTacTowApiCalls from "../api_calls/ticTacToeApiCalls";
 function TicTacTowLogic(){
     let [isPending,setIsPending] = useState(false);
+    const [tut,setTut] = useState(true);
     const getStateFromResponse = (res) =>{
         let newBoxes = res[TttJsonFields.boxStateList];
         for(let i = 0;i<9;i++){
@@ -226,7 +227,6 @@ function TicTacTowLogic(){
         }
         return row;
     }
-
     const getSelectedCardSize = () => {
         for (let i=0; i < state.myCards.length; i++) {
             if(state.myCards[i]["selected"])
@@ -247,7 +247,7 @@ function TicTacTowLogic(){
 
     return {state,setState, handleSubmit,
         handleClickOnCups,getRow,create,
-        isPending,getStateFromResponse,refresh,restart
+        isPending,getStateFromResponse,refresh,restart,tut,setTut
     };
 }
 export default TicTacTowLogic;
