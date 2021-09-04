@@ -11,10 +11,12 @@ function MyNavbar() {
                     <Nav className="me-auto">
                         <Nav.Link href="/experience" >Experience</Nav.Link>
                         <NavDropdown title="Live Demos" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="/demo/caption-contest">Caption Contest</NavDropdown.Item>
+                            {/*<NavDropdown.Item href="/demo/caption-contest">Caption Contest</NavDropdown.Item>*/}
                             <NavDropdown.Item href="/demo/adv-tic-tac-toe">Advanced Tic-Tac-Toe</NavDropdown.Item>
-                            <NavDropdown.Item href="/demo/habit-tracker">Habit Tracker</NavDropdown.Item>
-                            <NavDropdown.Item href="/demo/topic-reviser">Topic Reviser </NavDropdown.Item>
+                            <NavDropdown.Divider />
+                            <NavDropdown.Item >More coming soon...</NavDropdown.Item>
+                            {/*<NavDropdown.Item href="/demo/habit-tracker">Habit Tracker</NavDropdown.Item>*/}
+                            {/*<NavDropdown.Item href="/demo/topic-reviser">Topic Reviser </NavDropdown.Item>*/}
                             {/*<NavDropdown.Divider />*/}
                             {/*<NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>*/}
                         </NavDropdown>

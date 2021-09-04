@@ -5,6 +5,7 @@ import TicTacTowApiCalls from "../api_calls/ticTacToeApiCalls";
 function TicTacTowLogic(){
     let [isPending,setIsPending] = useState(false);
     const [tut,setTut] = useState(true);
+    const [algo,setAlgo] = useState("PLAYER");
     const getStateFromResponse = (res) =>{
         let newBoxes = res[TttJsonFields.boxStateList];
         for(let i = 0;i<9;i++){
@@ -29,7 +30,6 @@ function TicTacTowLogic(){
         res["created"] = true;
         localStorage.setItem("ttt_game_state",JSON.stringify(res))
         setState(res);
-        console.log(state.iwon)
     }
     let [state ,setState] = useState({
         "gameId": "",
@@ -198,14 +198,16 @@ function TicTacTowLogic(){
         "yourTurn": false,
         "iwon": false
     });
-    let {create,refresh,submit,restart} = TicTacTowApiCalls(setIsPending,getStateFromResponse,state);
+    let {create,refresh,submit,restart} = TicTacTowApiCalls(setIsPending,getStateFromResponse,state,algo);
 
+    const setAndSaveAlgo = (a)=>{
+        localStorage.setItem("ttt_algo",a);
+        setAlgo(a);
+    }
     const handleSubmit = (id)=>{
         if(isPending)
             return;
         let selectedCard = getSelectedCardSize()
-        console.log(selectedCard)
-        console.log(id)
         if(selectedCard === -1)
             return;
         submit(id,selectedCard)
@@ -237,8 +239,6 @@ function TicTacTowLogic(){
     const getColor=(box)=>{
         if(box.empty)
             return colors.ttt.emptyCard;
-        console.log(box.player)
-        console.log(state.player)
         if(box.player===state.player){
             return colors.ttt.myCard;
         }
@@ -247,7 +247,7 @@ function TicTacTowLogic(){
 
     return {state,setState, handleSubmit,
         handleClickOnCups,getRow,create,
-        isPending,getStateFromResponse,refresh,restart,tut,setTut
+        isPending,getStateFromResponse,refresh,restart,tut,setTut,setAndSaveAlgo
     };
 }
 export default TicTacTowLogic;

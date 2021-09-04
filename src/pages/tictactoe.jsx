@@ -9,7 +9,7 @@ import TictactoeTut from "./tictactoeTut";
 function Tictactoe(){
     const {state,setState, handleSubmit,
         handleClickOnCups,getRow,
-        create,isPending,getStateFromResponse,refresh,restart,tut,setTut
+        create,isPending,getStateFromResponse,refresh,restart,tut,setTut,setAndSaveAlgo
     } = TicTacTowLogic();
     useEffect(()=>{
         if(localStorage.getItem("ttt_game_state"))
@@ -17,14 +17,22 @@ function Tictactoe(){
         if(localStorage.getItem("ttt_game_tut"))
             setTut(false);
         else
-            setTut(true)
+            setTut(true);
+        if(localStorage.getItem("ttt_algo"))
+            setAndSaveAlgo(localStorage.getItem("ttt_algo"));
     },[setState]);
     const renderCreateGameButton = () =>{
         if(isPending && !state.created){
             return <Button style={{backgroundColor: colors.ttt.theirCard,color:"black",margin:"2rem"}} >Loading...</Button>
         }
         if(!isPending && !state.created){
-            return <Button style={{backgroundColor: colors.ttt.theirCard,color:"black",margin:"2rem"}} onClick ={()=>create()} >Create New Game</Button>        }
+            return (
+                <div style={{marginBottom:"10px"}}>
+                    <Button style={{backgroundColor: colors.ttt.theirCard,color:"black",margin:"10px"}} onClick ={()=>{setAndSaveAlgo('PLAYER');create("PLAYER")}} >Play with friends</Button>
+                    <Button style={{backgroundColor: colors.ttt.theirCard,color:"black",margin:"10px"}} onClick ={()=>{setAndSaveAlgo('MIN_MAX');create("MIN_MAX")}} >Play with AI (Min-Max algorithm)</Button>
+                </div>
+            )
+        }
         return null;
     }
     const renderRefresh = () =>{
@@ -98,13 +106,14 @@ function Tictactoe(){
     }
     const renderMenu=()=>{
         return (
-            <Dropdown style={{margin:"10px",marginLeft:"20px"}}>
+            <Dropdown style={{margin:"auto"}}>
                 <Dropdown.Toggle variant="success" id="dropdown-basic">
                     Actions
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
                     <Dropdown.Item onClick={restart} >restart the game</Dropdown.Item>
-                    <Dropdown.Item onClick={create}>create new game</Dropdown.Item>
+                    <Dropdown.Item onClick={()=>{setAndSaveAlgo("PLAYER");create("PLAYER")}}>create new game</Dropdown.Item>
+                    <Dropdown.Item onClick={()=>{setAndSaveAlgo("MIN_MAX");create("MIN_MAX")}}>create new game with AI</Dropdown.Item>
                     <Dropdown.Item onClick={()=>{localStorage.removeItem("ttt_game_tut");setTut(true)}}>Tutorial</Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
@@ -114,8 +123,8 @@ function Tictactoe(){
         return <TictactoeTut setTut={setTut}/>
     }
     return(
-        <div style={{textAlign:"left"}}>
-            <div style={{display:"flex",flexDirection:"row"}}>
+        <div style={{display:"flex",flexDirection:"column"}}>
+            <div style={{display:"flex",flexDirection:"row",textAlign:"center",margin:"auto"}}>
                 {renderMenu()}
             </div>
             <div style={{display:"flex",margin:"auto",height:"100%",flexDirection:"column",alignItems:"center"}}>

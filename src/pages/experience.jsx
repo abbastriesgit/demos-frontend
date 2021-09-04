@@ -3,17 +3,21 @@ import {useEffect, useState} from "react";
 
 
 function Experience() {
-    const [flex,setFlex] = useState("row")
+    const getFlex=()=>{
+        if(window.innerWidth<1200){
+            return "column";
+        }
+        else
+            return "row";
+    }
+    const [flex,setFlex] = useState(getFlex())
     useEffect(()=>{
         window.addEventListener('resize', handleWindowSizeChange);
     },[])
     const handleWindowSizeChange = () => {
-        if(window.innerWidth<1200){
-            setFlex("column")
-        }
-        else
-            setFlex("row")
+       setFlex(getFlex())
     };
+
     const data = [
         {
             "title": "Software Developer Engineer",

@@ -1,8 +1,8 @@
 import urls from "../constants/urls";
 
-function TicTacTowApiCalls(setIsPending,getStateFromResponse,state){
-    const create = () => {
-        const url = urls.ttt.b.base + urls.ttt.b.create;
+function TicTacTowApiCalls(setIsPending,getStateFromResponse,state,algo){
+    const create = (algorithm) => {
+        const url = urls.ttt.b.base + urls.ttt.b.create + "?algorithm="+algorithm;
         setIsPending(true);
         fetch(url,{
             method:'POST',
@@ -49,7 +49,8 @@ function TicTacTowApiCalls(setIsPending,getStateFromResponse,state){
                 "boxIndex": index,
                 "boxSize": size,
                 "gameId": state.gameId,
-                "player": state.player
+                "player": state.player,
+                "algorithm":algo
             })
         }).then((res)=>{
                 setIsPending(false);
