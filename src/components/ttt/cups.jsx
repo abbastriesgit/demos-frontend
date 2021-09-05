@@ -1,6 +1,7 @@
 import TtBox from "./ttBox";
-
+import { useSpring, animated ,config} from 'react-spring'
 function Cups({states,onClick,border}){
+
 
     return(
         <div style={{...border,display:"flex",flexWrap:"wrap",justifyContent:"center",margin:"auto"}}>
