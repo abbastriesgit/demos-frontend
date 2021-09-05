@@ -15,7 +15,7 @@ let urls = {
             "move":"/move",
             "restart":"/restart"
         },
-        "tut":"https://www.youtube.com"
+        "tut":"https://youtu.be/m7WEkMM5b4w"
     }
 } ;
 export default urls;

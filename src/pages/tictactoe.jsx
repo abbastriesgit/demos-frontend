@@ -28,7 +28,7 @@ function Tictactoe(){
         if(!isPending && !state.created){
             return (
                 <div style={{marginBottom:"10px"}}>
-                    <Button style={{backgroundColor: colors.ttt.theirCard,color:"black",margin:"10px"}} href={"https://www.youtube.com/"} target={"_blank"} >Watch Tutorial</Button>
+                    <Button style={{backgroundColor: colors.ttt.theirCard,color:"black",margin:"10px"}} href={urls.ttt.tut} target={"_blank"} >Watch Tutorial</Button>
                     <Button style={{backgroundColor: colors.ttt.theirCard,color:"black",margin:"10px"}} onClick ={()=>{setAndSaveAlgo('PLAYER');create("PLAYER")}} >Play with friends</Button>
                     <Button style={{backgroundColor: colors.ttt.theirCard,color:"black",margin:"10px"}} onClick ={()=>{setAndSaveAlgo('MIN_MAX');create("MIN_MAX")}} >Play with AI (Min-Max algorithm)</Button>
                 </div>
