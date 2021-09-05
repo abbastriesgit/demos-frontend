@@ -3,7 +3,11 @@ import {useEffect, useState} from "react";
 
 function TtBox({color,number,selected,onClick,index}){
     let [state,setState] = useState(1);
-    const props = useSpring({ to: { opacity: 1 }, from: { opacity: 0} ,config: { duration: 1000 }})
+    const props = useSpring({
+        to: { opacity: 1, transform: 'rotate(0deg)' },
+        from: { opacity: 0, transform: 'rotate(-180deg)'},
+        config: { duration: 1000 }
+    })
     if(selected){
         return <animated.div  onClick={()=>{setState(state+1);onClick(index)}} style={{backgroundColor:color,color:"#272727",
             display:"flex",verticalAlign:"middle",
