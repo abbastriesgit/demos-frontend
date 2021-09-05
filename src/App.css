@@ -6,6 +6,14 @@
   transform: scale(1.2);
   border-radius: 2%   ;
 }
+
+.hovermenu{
+  opacity: 0.8;
+}
+.hovermenu:hover{
+  opacity: 1;
+  border-radius: 2px;
+}
 .App {
   text-align: center;
 }

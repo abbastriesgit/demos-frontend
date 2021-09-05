@@ -14,7 +14,8 @@ let urls = {
             "state":"/state",
             "move":"/move",
             "restart":"/restart"
-        }
+        },
+        "tut":"https://www.youtube.com"
     }
 } ;
 export default urls;

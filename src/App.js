@@ -17,7 +17,8 @@ function App() {
       <Router>
         <div className="App" style={{display:"flex" ,flexDirection:"column",minHeight:"100vh"}}>
           <MyNavbar/>
-            <div style={{marginTop:"4rem"}}>
+            <div style={{height:"4rem"}}></div>
+            <div style={{display:"flex",alignItems:"center",margin:"auto"}}>
                 <Switch>
                     <Route path="/about">
                         <AboutMe/>
@@ -35,7 +36,7 @@ function App() {
                         <TictactoeJoin/>
                     </Route>
                     <Route  exact={true} path="/">
-                        <Home/>
+                        <AboutMe/>
                     </Route>
                 </Switch>
             </div>

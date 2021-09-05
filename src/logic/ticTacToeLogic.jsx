@@ -189,6 +189,14 @@ function TicTacTowLogic(){
                 "index": 0,
                 "color": colors.ttt.theirCard,
                 "key":"5"
+            },
+            {
+                "size": 1,
+                "left": true,
+                "selected":false,
+                "index": 0,
+                "color": colors.ttt.theirCard,
+                "key":"6"
             }
         ],
         "gameStarted": false,

@@ -28,6 +28,7 @@ function Tictactoe(){
         if(!isPending && !state.created){
             return (
                 <div style={{marginBottom:"10px"}}>
+                    <Button style={{backgroundColor: colors.ttt.theirCard,color:"black",margin:"10px"}} href={"https://www.youtube.com/"} target={"_blank"} >Watch Tutorial</Button>
                     <Button style={{backgroundColor: colors.ttt.theirCard,color:"black",margin:"10px"}} onClick ={()=>{setAndSaveAlgo('PLAYER');create("PLAYER")}} >Play with friends</Button>
                     <Button style={{backgroundColor: colors.ttt.theirCard,color:"black",margin:"10px"}} onClick ={()=>{setAndSaveAlgo('MIN_MAX');create("MIN_MAX")}} >Play with AI (Min-Max algorithm)</Button>
                 </div>
@@ -68,10 +69,11 @@ function Tictactoe(){
             }
             return <div style={{
                 backgroundColor:colors.ttt.theirCard,
-                border:"2px solid grey",
-                padding:"10px",
+                color:"black",
+                boxShadow:"white",
                 borderRadius:"5px",
-                marginBottom:"10px"
+                padding:"4px",
+                opacity:"0.8"
             }}>
                 {text}
             </div>
@@ -105,40 +107,46 @@ function Tictactoe(){
         }
     }
     const renderMenu=()=>{
+        if(!state.created)
+            return null;
         return (
-            <Dropdown style={{margin:"auto"}}>
-                <Dropdown.Toggle variant="success" id="dropdown-basic">
+            <div>
+            <Dropdown color={colors.ttt.theirCard} style={{margin:"auto"}}>
+                <Dropdown.Toggle variant="success" style={{backgroundColor:colors.ttt.theirCard,color:"black"}} id="dropdown-basic">
                     Actions
                 </Dropdown.Toggle>
-                <Dropdown.Menu>
-                    <Dropdown.Item onClick={restart} >restart the game</Dropdown.Item>
-                    <Dropdown.Item onClick={()=>{setAndSaveAlgo("PLAYER");create("PLAYER")}}>create new game</Dropdown.Item>
-                    <Dropdown.Item onClick={()=>{setAndSaveAlgo("MIN_MAX");create("MIN_MAX")}}>create new game with AI</Dropdown.Item>
-                    <Dropdown.Item onClick={()=>{localStorage.removeItem("ttt_game_tut");setTut(true)}}>Tutorial</Dropdown.Item>
+                <Dropdown.Menu style={{margin:"0",padding:"0"}}>
+                    <Dropdown.Item className={"hovermenu"} style={{backgroundColor:colors.ttt.theirCard,border:"1px solid grey"}} onClick={restart} >Restart the game</Dropdown.Item>
+                    <Dropdown.Item className={"hovermenu"} style={{backgroundColor:colors.ttt.theirCard,borderBottom:"1px solid grey"}} onClick={()=>{setAndSaveAlgo("PLAYER");create("PLAYER")}}>Create new game (without AI)</Dropdown.Item>
+                    <Dropdown.Item className={"hovermenu"} style={{backgroundColor:colors.ttt.theirCard,borderBottom:"1px solid grey"}} onClick={()=>{setAndSaveAlgo("MIN_MAX");create("MIN_MAX")}}>Create new game (with AI)</Dropdown.Item>
+                    {/*<Dropdown.Item style={{backgroundColor:colors.ttt.theirCard,borderBottom:"1px solid grey"}}  onClick={()=>{localStorage.removeItem("ttt_game_tut");setTut(true)}}>Watch a Tutorial</Dropdown.Item>*/}
+                    <Dropdown.Item className={"hovermenu"} style={{backgroundColor:colors.ttt.theirCard,borderBottom:"1px solid grey"}}  onClick={()=>{window.open(urls.ttt.tut,"_blank")}}>Watch a Tutorial</Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
+            </div>
         );
     }
-    if(tut){
-        return <TictactoeTut setTut={setTut}/>
-    }
+    // if(tut){
+    //     return <TictactoeTut setTut={setTut}/>
+    // }
     return(
-        <div style={{display:"flex",flexDirection:"column"}}>
-            <div style={{display:"flex",flexDirection:"row",textAlign:"center",margin:"auto"}}>
+        <div style={{display:"flex",flexDirection:"column",alignItems:"center",margin:"auto",marginTop:"100px",marginBottom:"100px"}}>
+            <div style={{display:"flex",flexDirection:"row",textAlign:"center",flexWrap:"wrap",alignItems:"center",justifyContent:"center"}}>
                 {renderMenu()}
-            </div>
-            <div style={{display:"flex",margin:"auto",height:"100%",flexDirection:"column",alignItems:"center"}}>
                 {renderCreateGameButton()}
                 {renderUrl()}
                 {renderRefresh()}
                 {renderWinMessage()}
                 {renderWaitForTurnMessage()}
-                <Cups states={state.myCards} onClick = {handleClickOnCups}/>
+            </div>
+            <div style={{display:"flex",margin:"auto",height:"100%",flexDirection:"column",alignItems:"center"}}>
+                <div style={{display:"flex" ,flexDirection:"column" ,alignItems:"center"}}>
+                <Cups states={state.myCards} border={{borderBottom:"2px dotted grey"}} onClick = {handleClickOnCups}/>
                 <TtRow states={getRow(0)}  onClick = {handleSubmit}/>
                 <TtRow states={getRow(1)} onClick = {handleSubmit}/>
                 <TtRow states={getRow(2)}  onClick = {handleSubmit}/>
-                <Cups states={state.otherPlayersCards} onClick = {(id)=>{}}/>
-                <div style={{margin:"50px"}}></div>
+                <Cups states={state.otherPlayersCards} border={{borderTop:"2px dotted grey"}} onClick = {(id)=>{}}/>
+                </div>
             </div>
         </div>
     );

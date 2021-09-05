@@ -1,8 +1,9 @@
 import TtBox from "./ttBox";
 
-function Cups({states,onClick}){
+function Cups({states,onClick,border}){
+
     return(
-        <div style={{display:"flex",flexWrap:"wrap",justifyContent:"center",margin:"auto"}}>
+        <div style={{...border,display:"flex",flexWrap:"wrap",justifyContent:"center",margin:"auto"}}>
             {
                 states.map(
                 state=>{

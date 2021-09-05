@@ -1,8 +1,52 @@
 import {Card} from "react-bootstrap";
 import {useEffect, useState} from "react";
-
+import { useSpring, animated ,config} from 'react-spring'
+import colors from "../constants/colors";
 
 function Experience() {
+    const propHead =  useSpring({
+        to: { opacity: 1, transform: 'translateY(0px) ' },
+        from: { opacity: 0, transform: 'translateY(-250px) '} ,
+        config: { mass: 3, tension: 100, friction: 12 }
+    });
+    const propsTitle = [
+        useSpring({
+            to: { opacity: 1, transform: 'translateX(0px) ' },
+            from: { opacity: 0, transform: 'translateX(250px) '} ,
+            config: { mass: 3, tension: 100, friction: 12 }
+        }),
+        useSpring({
+            to: { opacity: 1, transform: 'translateX(0px)' },
+            from: { opacity: 0, transform: 'translateX(250px)'} ,
+            config: { mass: 3, tension: 100, friction: 12 },
+            delay : 500
+        }),
+        useSpring({
+            to: { opacity: 1, transform: 'translateX(0px)' },
+            from: { opacity: 0, transform: 'translateX(250px)'} ,
+            config: { mass: 3, tension: 100, friction: 12 },
+            delay : 1000
+        })
+    ]
+    const propsBody = [
+        useSpring({
+            to: { opacity: 1, transform: 'translateX(0px)' },
+            from: { opacity: 0, transform: 'translateX(-250px)'} ,
+            config: { mass: 3, tension: 50, friction: 12 }
+        }),
+        useSpring({
+            to: { opacity: 1, transform: 'translateX(0px)' },
+            from: { opacity: 0, transform: 'translateX(-250px)'} ,
+            config: { mass: 3, tension: 100, friction: 12 },
+            delay : 500
+        }),
+        useSpring({
+            to: { opacity: 1, transform: 'translateX(0px)' },
+            from: { opacity: 0, transform: 'translateX(-250px)'} ,
+            config: { mass: 3, tension: 100, friction: 12 },
+            delay : 1000
+        })
+    ]
     const getFlex=()=>{
         if(window.innerWidth<1200){
             return "column";
@@ -11,7 +55,10 @@ function Experience() {
             return "row";
     }
     const [flex,setFlex] = useState(getFlex())
+    let i = 0, j =0;
     useEffect(()=>{
+        i = 0;
+        j = 0;
         window.addEventListener('resize', handleWindowSizeChange);
     },[])
     const handleWindowSizeChange = () => {
@@ -57,22 +104,23 @@ function Experience() {
         ];
 
     return(
-        <div style={{width:"75%",display:"flex",flexDirection:"column",textAlign :"center",margin:"auto",marginTop:"2%"}}>
-            <Card.Text as={"h3"} style = {{marginBottom:"50px"}}>
+        <div style={{width:"75%",display:"flex",flexDirection:"column",textAlign :"center",justifyContent:"flex-start",margin:"auto"}}>
+            <animated.h3 style = {{...propHead,marginBottom:"50px"}}>
                 Work Experience
-            </Card.Text>
-            { data.map(d=>{
+            </animated.h3>
+            <span style={{}}>
+                { data.map(d=>{
                 return(
                     <div style={{padding:"5px",display:"flex",alignItems:"flex-start",flexDirection:flex}}>
-                        <div style={{padding:"5px",display:"flex",alignItems:"baseline",textAlign:"left",flexDirection:"column",flexWrap:"wrap"}}>
+                        <animated.div style={{...propsTitle[i++],padding:"5px",display:"flex",alignItems:"baseline",textAlign:"left",flexDirection:"column",flexWrap:"wrap"}}>
                             <h5 style={{marginRight:"2rem",width:"20rem"}}>
                                 {d["title"]}
                             </h5>
                             <h6 style={{marginRight:"5rem",marginBottom:"0",width:"20rem"}}>
                                 {d["company"]} <i>{d["date"]}</i>
                             </h6>
-                        </div>
-                        <div style={{padding:"5px",display:"flex",alignItems:"baseline",textAlign:"left",flexDirection:"row",flexWrap:"wrap"}}>
+                        </animated.div>
+                        <animated.div style={{...propsBody[j++],padding:"5px",display:"flex",alignItems:"baseline",textAlign:"left",flexDirection:"row",flexWrap:"wrap"}}>
                             <p style={{marginRight:"1px"}}>
                                 {
                                     d["details"].map(detail=>{
@@ -83,13 +131,14 @@ function Experience() {
                                     })
                                 }
                             </p>
-                        </div>
+                        </animated.div>
                     </div>
                 )
 
             })}
-
+            </span>
+            <span style={{marginBottom:"50px"}}></span>
         </div>
-    );
+    )
 }
 export default Experience;
