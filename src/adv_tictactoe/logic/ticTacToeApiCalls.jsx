@@ -1,4 +1,4 @@
-import urls from "../constants/urls";
+import urls from "../../constants/urls";
 
 function TicTacTowApiCalls(setIsPending,getStateFromResponse,state,algo){
     const create = (algorithm) => {

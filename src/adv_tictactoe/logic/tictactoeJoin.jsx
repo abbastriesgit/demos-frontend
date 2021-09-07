@@ -1,8 +1,8 @@
 import {useHistory, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
-import urls from "../constants/urls";
-import colors from "../constants/colors";
-import TicTacTowLogic from "../logic/ticTacToeLogic";
+import urls from "../../constants/urls";
+import colors from "../../constants/colors";
+import TicTacTowLogic from "./ticTacToeLogic";
 function TictactoeJoin(){
     let par = useParams();
     let history = useHistory();

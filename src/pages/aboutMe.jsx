@@ -1,7 +1,7 @@
 import linkedIn from "../images/linkedin_logo_icon.jpeg";
 import github from "../images/github.png";
 import bitmoji from "../images/bitmoji.png";
-import IsMobile from "../logic/isMobile";
+import IsMobile from "../adv_tictactoe/logic/isMobile";
 import {useEffect, useState} from "react";
 import urls from "../constants/urls";
 import colors from "../constants/colors";

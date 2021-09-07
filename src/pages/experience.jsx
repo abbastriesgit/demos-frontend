@@ -3,7 +3,7 @@ import {useEffect, useState} from "react";
 import { useSpring, animated ,config} from 'react-spring'
 import colors from "../constants/colors";
 import workImage from "../images/work.png"
-import IsMobile from "../logic/isMobile";
+import IsMobile from "../adv_tictactoe/logic/isMobile";
 function Experience() {
     const propHead =  useSpring({
         to: { opacity: 1, transform: 'translateY(0px) ' },

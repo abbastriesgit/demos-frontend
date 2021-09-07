@@ -2,7 +2,9 @@ let urls = {
     "linkedIn":"https://www.linkedin.com/in/abbas-ali-58931a1ab/",
     "github":"https://github.com/abbastriesgit/abbastriesgit",
     "email":"mailto: abbasali.bits@gmail.com",
+    "genetic":"https://youtu.be/tV0CXsi9VH4?t=36",
     "ttt":{
+        "github":"https://github.com/abbastriesgit/demos-frontend/tree/master/src",
         "f":{
             // "base":"http://localhost:3000",
             "base":"https://abbas-ali.herokuapp.com",
@@ -21,7 +23,7 @@ let urls = {
             "move":"/move",
             "restart":"/restart"
         },
-        "tut":"https://youtu.be/m7WEkMM5b4w"
+        "tut":"https://youtu.be/kShmkaOq3WA"
     }
 } ;
 export default urls;

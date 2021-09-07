@@ -43,7 +43,7 @@ function Connect(){
             <animated.div style={{display:"flex",...propUp }}>
                 <div style={{flex:1}}></div>
                 <h1>
-                    hey, lets talk
+                    Hey, lets talk
                     <img src={connect} width={imgW*1.8}/>
                 </h1>
                 <div style={{flex:1}}></div>

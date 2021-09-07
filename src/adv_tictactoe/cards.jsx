@@ -1,6 +1,5 @@
 import TtBox from "./ttBox";
-import { useSpring, animated ,config} from 'react-spring'
-function Cups({states,onClick,border}){
+function Cards({states,onClick,border}){
 
 
     return(
@@ -17,4 +16,4 @@ function Cups({states,onClick,border}){
         </div>
     );
 }
-export default Cups;
+export default Cards;

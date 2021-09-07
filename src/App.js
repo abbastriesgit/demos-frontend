@@ -1,19 +1,18 @@
 import './App.css';
 import MyNavbar from "./components/myNavbar";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
-import Footer from "./components/footer";
 import {
     BrowserRouter as Router,
     Switch,
     Route
 } from "react-router-dom";
-import Home from "./pages/home";
 import AboutMe from "./pages/aboutMe";
 import Experience from "./pages/experience";
-import Tictactoe from "./pages/tictactoe";
-import TictactoeJoin from "./pages/tictactoeJoin";
+import Tictactoe from "./adv_tictactoe/tictactoe";
+import TictactoeJoin from "./adv_tictactoe/logic/tictactoeJoin";
 import colors from "./constants/colors";
 import Connect from "./pages/connect";
+import Projects from "./pages/projects";
 function App() {
   return (
       <Router>
@@ -36,8 +35,8 @@ function App() {
                     <Route path="/experience">
                         <Experience/>
                     </Route>
-                    <Route path="/cv">
-                        <h1>This users</h1>
+                    <Route path="/projects">
+                        <Projects/>
                     </Route>
                     <Route exact={true} path="/demo/adv-tic-tac-toe">
                         <Tictactoe/>
@@ -50,7 +49,6 @@ function App() {
                     </Route>
                 </Switch>
             </div>
-           {/*<Footer/>*/}
         </div>
       </Router>
   );

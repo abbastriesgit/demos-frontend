@@ -1,7 +1,7 @@
 import {useState} from "react";
-import colors from "../constants/colors.jsx";
-import TttJsonFields from "../constants/tttJsonFields";
-import TicTacTowApiCalls from "../api_calls/ticTacToeApiCalls";
+import colors from "../../constants/colors.jsx";
+import TttJsonFields from "../../constants/tttJsonFields";
+import TicTacTowApiCalls from "./ticTacToeApiCalls";
 function TicTacTowLogic(){
     let [isPending,setIsPending] = useState(false);
     const [tut,setTut] = useState(true);

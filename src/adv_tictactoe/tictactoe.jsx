@@ -1,11 +1,10 @@
-import {useEffect, useState} from "react";
-import Cups from "../components/ttt/cups";
-import TtRow from "../components/ttt/ttRow";
-import TicTacTowLogic from "../logic/ticTacToeLogic";
+import {useEffect} from "react";
+import Cards from "./cards";
+import TtRow from "./ttRow";
+import TicTacTowLogic from "./logic/ticTacToeLogic";
 import colors from "../constants/colors";
 import {Button,Dropdown} from "react-bootstrap";
 import urls from "../constants/urls";
-import TictactoeTut from "./tictactoeTut";
 function Tictactoe(){
     const {state,setState, handleSubmit,
         handleClickOnCups,getRow,
@@ -141,11 +140,11 @@ function Tictactoe(){
             </div>
             <div style={{display:"flex",margin:"auto",height:"100%",flexDirection:"column",alignItems:"center"}}>
                 <div style={{display:"flex" ,flexDirection:"column" ,alignItems:"center"}}>
-                <Cups states={state.myCards} border={{borderBottom:"2px dotted grey"}} onClick = {handleClickOnCups}/>
+                <Cards states={state.myCards} border={{borderBottom:"2px dotted grey"}} onClick = {handleClickOnCups}/>
                 <TtRow states={getRow(0)}  onClick = {handleSubmit}/>
                 <TtRow states={getRow(1)} onClick = {handleSubmit}/>
                 <TtRow states={getRow(2)}  onClick = {handleSubmit}/>
-                <Cups states={state.otherPlayersCards} border={{borderTop:"2px dotted grey"}} onClick = {(id)=>{}}/>
+                <Cards states={state.otherPlayersCards} border={{borderTop:"2px dotted grey"}} onClick = {(id)=>{}}/>
                 </div>
             </div>
         </div>
