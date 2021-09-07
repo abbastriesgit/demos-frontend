@@ -21,10 +21,14 @@ function Projects(){
                 }  ,{
                     "name":"Play",
                     "url":urls.ttt.f.base + urls.ttt.f.ttt
+                },{
+                    "name":"Swagger Doc",
+                    "url":urls.ttt.swagger
                 }
             ],
             "embed":"https://www.youtube.com/embed/kShmkaOq3WA"
-        },{
+        },
+        {
             "title":"Self Driving Cars",
             "skills":"C#, Unity, Genetic Algorithm",
             "description":"This is a car racing video game. The cars were trained using Genetic algorithm." +

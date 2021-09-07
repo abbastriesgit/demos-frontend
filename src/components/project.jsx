@@ -34,10 +34,12 @@ function Project({title,description,links,skills,embed,isMobile}){
                     <h6>{skills}</h6>
                     <p style={{marginBottom:"10px"}}>{description}</p>
                     <div style={{flex:1}}></div>
-                    <div style={{display:"flex",flexWrap:"wrap" ,margin:"10px"}}>
+                    <div style={{display:"flex",flexWrap:"wrap" ,textAlign:"center",margin:"10px"}}>
+                        <div style={{flex:1}}></div>
                         {links.map(link=>{
                             return <Button  onClick={()=>window.open(link.url,"_blank")} style={{margin:"10px",backgroundColor:colors.ttt.bg_light,color:"black",border:"none"}}> {link.name} </Button>;
                         })}
+                        <div style={{flex:1}}></div>
                     </div>
                 </div>
                 <div style={{margin:"auto"}}>
