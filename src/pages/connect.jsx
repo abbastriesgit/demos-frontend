@@ -54,7 +54,7 @@ function Connect(){
                     <h1> LinkedIn</h1>
                 </animated.div>
                 <animated.div style={{...s2,...propDown}}>
-                    <a href={urls.linkedIn} target={"_blank"}><img src = {github}  width={imgW} /></a>
+                    <a href={urls.github} target={"_blank"}><img src = {github}  width={imgW} /></a>
                     <h1> Github</h1>
                 </animated.div>
                 <animated.div style={{...s2,...propLeft}}>
