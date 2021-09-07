@@ -46,6 +46,7 @@ function Connect(){
                     hey, lets talk
                     <img src={connect} width={imgW*1.8}/>
                 </h1>
+                <div style={{flex:1}}></div>
             </animated.div>
             <div style={{display:"flex",flexDirection:"row"}}>
                 <animated.div style={{...s2,...propRight}}>

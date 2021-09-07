@@ -4,7 +4,7 @@ let colors = {
         "theirCard": "#49beb7",
         "emptyCard" : "#e5e5c9",
         "bg":"#f7ce55",
-        "bg_light":"#f5c736",
+        "bg_light":"#efc84f",
         "green":"#04a914"
     }
 } ;

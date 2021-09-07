@@ -111,8 +111,8 @@ function Experience() {
         ];
 
     return(
-        <div style={{width:"75%",display:"flex",flexDirection:"column",textAlign :"center",justifyContent:"flex-start",margin:"auto"}}>
-            <animated.h3 style = {{...propHead,marginBottom:"50px"}}>
+        <div style={{width:"75%",display:"flex",flexDirection:"column",textAlign :"center",justifyContent:"flex-start",margin:"auto",marginTop:"15px"}}>
+            <animated.h3 style = {{...propHead,marginBottom:"15px"}}>
                 Work Experience
                 <img src={workImage} width={imgW} />
             </animated.h3>

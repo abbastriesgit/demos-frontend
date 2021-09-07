@@ -35,15 +35,13 @@ function MyNavbar() {
         height:"40px",
         marginTop:"40px",
         display:"flex",
-        borderBottom:"1px solid red",
-        borderColor:colors.ttt.bg_light
+        borderBottom:"2px solid " + colors.ttt.bg_light
     };
     const navStyleClick = {
         height:"150px",
-        marginTop:"40px",
+        marginTop:"10px",
         display:"flex",
-        borderBottom:"4px solid red",
-        borderColor:colors.ttt.bg_light
+        borderBottom:"2px solid " + colors.ttt.bg_light
     };
     if(isMobile){
         if(click){
@@ -63,7 +61,7 @@ function MyNavbar() {
             );
         }
        return (
-           <div style={navStyle}>
+           <div style={{...navStyle,marginTop:"10px"}}>
                <div style={{flex:1}}></div>
                <Button style={buttonStyle} href={"/"}> <b>Home</b></Button>
                <div style={{flex:3}}></div>
