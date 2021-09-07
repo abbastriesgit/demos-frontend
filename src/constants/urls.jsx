@@ -4,7 +4,7 @@ let urls = {
     "email":"mailto: abbasali.bits@gmail.com",
     "genetic":"https://youtu.be/tV0CXsi9VH4?t=36",
     "ttt":{
-        "github":"https://github.com/abbastriesgit/demos-frontend/tree/master/src",
+        "github":"https://github.com/abbastriesgit/demos-frontend/tree/master/src/adv_tictactoe",
         "f":{
             // "base":"http://localhost:3000",
             "base":"https://abbas-ali.herokuapp.com",
