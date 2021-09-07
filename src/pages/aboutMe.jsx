@@ -76,6 +76,7 @@ function AboutMe(){
             <div style={style2}>
                 <animated.div style={propRight}>
                     I am a 2020 Computer Science graduate from one of the Top ranked universities  in India ,<a style={{color:"black"}} href={"https://www.bits-pilani.ac.in/"} target={"_blank"}> BITS Pilani </a>.
+                    I am currently working as a Software Engineer at Media.net.
                     I enjoy solving algorithmic problems and designing scalable and robust microservices.
                 </animated.div>
             </div>

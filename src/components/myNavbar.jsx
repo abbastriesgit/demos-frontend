@@ -5,6 +5,7 @@ import {useEffect, useState} from "react";
 import IsMobile from "../logic/isMobile";
 import urls from "../constants/urls";
 import close from "../images/close.png"
+import menu from "../images/menu.png"
 
 function MyNavbar() {
 
@@ -65,7 +66,7 @@ function MyNavbar() {
                <div style={{flex:1}}></div>
                <Button style={buttonStyle} href={"/"}> <b>Home</b></Button>
                <div style={{flex:3}}></div>
-               <img src="https://img.icons8.com/material-outlined/24/000000/menu--v4.png"  width={"20px"} height={"30px"} onClick={toggleClick}/>
+               <img src={menu}  width={"20px"} height={"30px"} onClick={toggleClick}/>
                <div style={{flex:1}}></div>
            </div>);
     }
