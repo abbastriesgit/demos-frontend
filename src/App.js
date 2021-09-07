@@ -12,16 +12,26 @@ import AboutMe from "./pages/aboutMe";
 import Experience from "./pages/experience";
 import Tictactoe from "./pages/tictactoe";
 import TictactoeJoin from "./pages/tictactoeJoin";
+import colors from "./constants/colors";
+import Connect from "./pages/connect";
 function App() {
   return (
       <Router>
-        <div className="App" style={{display:"flex" ,flexDirection:"column",minHeight:"100vh"}}>
+        <div className="App" style={{
+            display:"flex",
+            backgroundColor:colors.ttt.bg,
+            flexDirection:"column",
+            minHeight:"100vh",
+            font:"Roboto"
+        }}>
           <MyNavbar/>
-            <div style={{height:"4rem"}}></div>
             <div style={{display:"flex",alignItems:"center",margin:"auto"}}>
                 <Switch>
                     <Route path="/about">
                         <AboutMe/>
+                    </Route>
+                    <Route path="/connect">
+                        <Connect/>
                     </Route>
                     <Route path="/experience">
                         <Experience/>
@@ -40,7 +50,7 @@ function App() {
                     </Route>
                 </Switch>
             </div>
-           <Footer/>
+           {/*<Footer/>*/}
         </div>
       </Router>
   );

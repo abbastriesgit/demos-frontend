@@ -2,7 +2,8 @@ import {Card} from "react-bootstrap";
 import {useEffect, useState} from "react";
 import { useSpring, animated ,config} from 'react-spring'
 import colors from "../constants/colors";
-
+import workImage from "../images/work.png"
+import IsMobile from "../logic/isMobile";
 function Experience() {
     const propHead =  useSpring({
         to: { opacity: 1, transform: 'translateY(0px) ' },
@@ -54,7 +55,11 @@ function Experience() {
         else
             return "row";
     }
+    const getImageW = () =>{
+        return window.innerWidth * 0.1;
+    }
     const [flex,setFlex] = useState(getFlex())
+    const [imgW,setImgW] = useState(getImageW)
     let i = 0, j =0;
     useEffect(()=>{
         i = 0;
@@ -62,8 +67,10 @@ function Experience() {
         window.addEventListener('resize', handleWindowSizeChange);
     },[])
     const handleWindowSizeChange = () => {
-       setFlex(getFlex())
+       setFlex(getFlex());
+       setImgW(getImageW);
     };
+
 
     const data = [
         {
@@ -107,6 +114,7 @@ function Experience() {
         <div style={{width:"75%",display:"flex",flexDirection:"column",textAlign :"center",justifyContent:"flex-start",margin:"auto"}}>
             <animated.h3 style = {{...propHead,marginBottom:"50px"}}>
                 Work Experience
+                <img src={workImage} width={imgW} />
             </animated.h3>
             <span style={{}}>
                 { data.map(d=>{
