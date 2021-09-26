@@ -1,9 +1,7 @@
-import {Navbar, Container,Nav,NavDropdown} from "react-bootstrap";
 import colors from "../constants/colors";
 import {Button} from "react-bootstrap";
 import {useEffect, useState} from "react";
 import IsMobile from "../adv_tictactoe/logic/isMobile";
-import urls from "../constants/urls";
 import close from "../images/close.png"
 import menu from "../images/menu.png"
 

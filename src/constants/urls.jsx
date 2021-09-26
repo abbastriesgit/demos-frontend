@@ -26,5 +26,12 @@ let urls = {
         },
         "tut":"https://youtu.be/kShmkaOq3WA"
     }
+    ,"robot":{
+        "b":{
+            "simulate":"/simulate",
+            // "base":"https://abbas-ali.herokuapp.com"
+            "base":"http://localhost:8080"
+        }
+    }
 } ;
 export default urls;
