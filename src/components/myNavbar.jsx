@@ -1,9 +1,7 @@
-import {Navbar, Container,Nav,NavDropdown} from "react-bootstrap";
 import colors from "../constants/colors";
 import {Button} from "react-bootstrap";
 import {useEffect, useState} from "react";
 import IsMobile from "../adv_tictactoe/logic/isMobile";
-import urls from "../constants/urls";
 import close from "../images/close.png"
 import menu from "../images/menu.png"
 
@@ -77,6 +75,7 @@ function MyNavbar() {
             <Button style={buttonStyle} href={"/experience"}> <b>Experience</b></Button>
             <Button style={buttonStyle} href={"/projects"}> <b>Projects</b></Button>
             <Button style={buttonStyle} href={"/connect"}> <b>Lets Connect</b></Button>
+            <Button style={buttonStyle} href={"/demo/robot-simulator"}> <b>Robot Simulator</b></Button>
             <div style={{flex:2}}></div>
         </div>);
 }

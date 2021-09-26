@@ -13,6 +13,8 @@ import TictactoeJoin from "./adv_tictactoe/logic/tictactoeJoin";
 import colors from "./constants/colors";
 import Connect from "./pages/connect";
 import Projects from "./pages/projects";
+import React from "react";
+import RobotSimulator from "./robot_simulation/robotSimulator";
 function App() {
   return (
       <Router>
@@ -46,6 +48,9 @@ function App() {
                     </Route>
                     <Route  exact={true} path="/">
                         <AboutMe/>
+                    </Route>
+                    <Route  exact={true} path="/demo/robot-simulator">
+                        <RobotSimulator/>
                     </Route>
                 </Switch>
             </div>
