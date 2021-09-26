@@ -34,12 +34,15 @@ function MyNavbar() {
         height:"40px",
         marginTop:"40px",
         display:"flex",
+        width:"100vw",
+        // backgroundColor: colors.ttt.bg,
         borderBottom:"2px solid " + colors.ttt.bg_light
     };
     const navStyleClick = {
         height:"150px",
         marginTop:"10px",
         display:"flex",
+        width:"100vw",
         borderBottom:"2px solid " + colors.ttt.bg_light
     };
     if(isMobile){
@@ -52,6 +55,7 @@ function MyNavbar() {
                         <Button style={buttonStyle} href={"/experience"}> <b>Experience</b></Button>
                         <Button style={buttonStyle} href={"/projects"}> <b>Projects</b></Button>
                         <Button style={buttonStyle} href={"/connect"}> <b>Lets Connect</b></Button>
+                        <Button style={buttonStyle} href={"/demo/robot-simulator"}> <b>Robot Simulator</b></Button>
                     </div>
                     <div style={{flex:3}}></div>
                     <img src={close} style={{marginTop:"5px"}} width={"20px"} height={"20px"} onClick={toggleClick}/>

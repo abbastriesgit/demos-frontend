@@ -8,6 +8,15 @@
     display: flex;
     flex-wrap: wrap;
 }
+.robot-main-mobile{
+    background-color: #f7ce55;
+    text-align: center;
+    justify-content: center;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
 .editor{
     background-color: #f7ce55;
     min-height:500px;
@@ -21,7 +30,22 @@
     margin: auto;
     width: 50%;
     flex: 1;
-
+}
+.editor-mobile{
+    background-color: #f7ce55;
+    width: 80vw;
+    height: 40vh;
+    min-height: 100px;
+    min-width: 100px;
+    max-height: 500px;
+    max-width: 500px;
+    text-align: center;
+    justify-content: center;
+    /*padding: 20px;*/
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    flex: 1;
 }
 .grid{
     background-color: #f7ce55;
@@ -35,10 +59,31 @@
     display: flex;
     flex-direction: column;
 }
+.grid-mobile{
+    background-color: #f7ce55;
+    /*min-height:200px;*/
+    /*min-width: 300px;*/
+    /*text-align: center;*/
+    justify-content: center;
+    margin: auto;
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
 .grid-container{
     background-color: #f7ce55;
     min-height:500px;
     min-width: 500px;
+    /*text-align: center;*/
+    /*justify-content: center;*/
+    margin: auto ;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.grid-container-mobile{
+    background-color: #f7ce55;
     /*text-align: center;*/
     /*justify-content: center;*/
     margin: auto ;
@@ -70,6 +115,15 @@
     text-align: center;
     margin: 0px;
 }
+.cell-mobile{
+    border: 1px solid black;
+    /*width: 100px;*/
+    /*height: 100px;*/
+    /*min-height: 100px;*/
+    /*min-width:100px;*/
+    text-align: center;
+    margin: 0px;
+}
 .textarea{
     background-color: #f7ce55;
     width: 100px;
@@ -79,4 +133,28 @@
     /*text-align: center;*/
     padding: 20px;
     font-weight: bold ;
+}
+.textarea-mobile{
+    background-color: #f7ce55;
+    width: 70vw;
+    height: 40vh;
+    min-height: 100px;
+    min-width:100px;
+    /*text-align: center;*/
+    padding: 10px;
+    font-weight: bold ;
+    margin: auto;
+}
+.info{
+    text-align: left;
+    margin: auto;
+    min-height: 500px;
+    border: 1px solid black;
+    padding: 10px;
+}
+.info-mobile{
+    text-align: left;
+    margin: auto;
+    border: 1px solid black;
+    padding: 5px;
 }

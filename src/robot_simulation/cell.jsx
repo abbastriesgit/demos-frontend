@@ -1,6 +1,6 @@
 import React from "react";
 import tank from "./tank.png"
-function Cell({rows,columns,state}) {
+function Cell({isMobile,rows,columns,state}) {
     let style = {};
     if(state.direction === 'WEST')
         style = {transform: "rotate(-90deg)"};
@@ -17,23 +17,41 @@ function Cell({rows,columns,state}) {
     else
         style = {...style, opacity:'0'};
     const getWidth= ()=>{
+        if(isMobile){
+            let w = window.innerWidth/columns - 5;
+            console.log(w)
+            return w+'px';
+        }
         let w = 500.0/columns;
+        console.log(isMobile,w)
         return w+'px';
     }
     const getHeight= ()=>{
+        if(isMobile){
+            let w = window.innerWidth/rows - 5;
+            return w+'px';
+        }
         let w = 500.0/rows;
         return w+'px';
     }
     const getWidthImg= ()=>{
+        if(isMobile){
+            let w = window.innerWidth/columns -8;
+            return w+'px';
+        }
         let w = 450.0/columns;
         return w+'px';
     }
     const getHeightImg= ()=>{
+        if(isMobile){
+            let w = window.innerWidth/rows -8;
+            return w+'px';
+        }
         let w = 450.0/rows;
         return w+'px';
     }
     return (
-        <div className={'cell'} style={{width:getWidth(),minWidth:getWidth(),height:getHeight(),minHeight:getHeight()}} >
+        <div className={isMobile?'cell-mobile':'cell'} style={{width:getWidth(),minWidth:getWidth(),height:getHeight(),minHeight:getHeight()}} >
             {<img src = {tank} width={getWidthImg()} height={getHeightImg()} style={{...style,margin:"2px"}}/>}
         </div>
     );

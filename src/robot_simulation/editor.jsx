@@ -3,14 +3,18 @@ import Button from "react-bootstrap/Button";
 import colors from "../constants/colors";
 import ApiCalls from "./apiCalls";
 
-function Editor({setState,isPending,setIsPending,rows,columns,mode,setError}) {
+function Editor({isMobile,setState,isPending,setIsPending,rows,columns,mode,setError}) {
     let [code,setCode] = useState([
-        "POSITION 0 0 EAST",
-        "FORWARD",
-        "FORWARD",
+        "POSITION 0 1 EAST",
+        "FORWARD 1",
         "RIGHT",
-        "FORWARD"
+        "FORWARD 2",
+        "TURNAROUND",
+        "FORWARD 1",
+        "WAIT",
+        "RIGHT"
     ]);
+
     const {simulate} = ApiCalls(setIsPending,setState,setError);
     const listToString = (code)=>{
         let string = '';
@@ -34,13 +38,13 @@ function Editor({setState,isPending,setIsPending,rows,columns,mode,setError}) {
         simulate(code,true,rows,columns,mode);
     }
     return(
-        <div className={'editor'}>
+        <div className={isMobile?'editor-mobile':'editor'}>
             <textarea onChange={(e)=>{
                     setCode(stringToList(e.target.value));
                     localStorage.setItem("code",JSON.stringify(stringToList(e.target.value)));
                 }}
                      value={listToString(code)}
-           className={'textarea'}
+           className={isMobile?'textarea-mobile':'textarea'}
            >
 
            </textarea>
