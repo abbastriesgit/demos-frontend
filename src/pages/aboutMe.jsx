@@ -5,7 +5,6 @@ import IsMobile from "../adv_tictactoe/logic/isMobile";
 import {useEffect, useState} from "react";
 import urls from "../constants/urls";
 import colors from "../constants/colors";
-import connect from "../images/connect.png";
 import { useSpring, animated ,config} from 'react-spring'
 function AboutMe(){
    const style1 = {

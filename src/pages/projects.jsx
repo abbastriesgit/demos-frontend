@@ -1,5 +1,3 @@
-import {useEffect, useState} from "react";
-import IsMobile from "../adv_tictactoe/logic/isMobile";
 import Project from "../components/project";
 import urls from "../constants/urls";
 

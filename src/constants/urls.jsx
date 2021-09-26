@@ -29,8 +29,8 @@ let urls = {
     ,"robot":{
         "b":{
             "simulate":"/simulate",
-            // "base":"https://abbas-ali.herokuapp.com"
-            "base":"http://localhost:8080"
+            "base":"https://abbas-ali.herokuapp.com"
+            // "base":"http://localhost:8080"
         }
     }
 } ;

@@ -6,7 +6,7 @@ function Row({rows,columns,state}) {
     return(
         <div className={'grid-row'}>
             {  state.map(cell=>{
-            return <Cell rows = {rows} columns = {columns} state ={cell}/>
+            return <Cell key = {cell.k} rows = {rows} columns = {columns} state ={cell}/>
         })}
         </div>
 

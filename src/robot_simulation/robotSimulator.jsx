@@ -28,6 +28,8 @@ function RobotSimulator() {
                         <p>{err.error}</p>
                     </div>
                         );
+            else
+                return null;
         })
     }
     return(

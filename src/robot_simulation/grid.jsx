@@ -6,7 +6,7 @@ function Grid({rows,columns,states}) {
     for(let i =0;i<rows;i++){
         let row = [];
         for(let j =0;j<columns;j++){
-            row.push({x:j,y:i});
+            row.push({x:j,y:i,k: j*1000+i});
         }
         cells.push(row);
     }
@@ -25,7 +25,7 @@ function Grid({rows,columns,states}) {
         <div className={'grid'}>
             <div className={'grid-container'}>
                 {cells.map(row=>{
-                    return <Row rows = {rows } columns = {columns} state = {row}/>
+                    return <Row key = {row[0].k} rows = {rows } columns = {columns} state = {row}/>
                 })}
             </div>
         </div>
