@@ -18,7 +18,7 @@ function Cell({isMobile,rows,columns,state}) {
         style = {...style, opacity:'0'};
     const getWidth= ()=>{
         if(isMobile){
-            let w = window.innerWidth/columns - 5;
+            let w = Math.min(window.innerWidth,500)/columns - 5;
             console.log(w)
             return w+'px';
         }
@@ -28,7 +28,7 @@ function Cell({isMobile,rows,columns,state}) {
     }
     const getHeight= ()=>{
         if(isMobile){
-            let w = window.innerWidth/rows - 5;
+            let w = Math.min(window.innerWidth,500)/rows - 5;
             return w+'px';
         }
         let w = 500.0/rows;
@@ -36,7 +36,7 @@ function Cell({isMobile,rows,columns,state}) {
     }
     const getWidthImg= ()=>{
         if(isMobile){
-            let w = window.innerWidth/columns -8;
+            let w = Math.min(window.innerWidth,500)/columns -8;
             return w+'px';
         }
         let w = 450.0/columns;
@@ -44,7 +44,7 @@ function Cell({isMobile,rows,columns,state}) {
     }
     const getHeightImg= ()=>{
         if(isMobile){
-            let w = window.innerWidth/rows -8;
+            let w = Math.min(window.innerWidth,500)/rows -8;
             return w+'px';
         }
         let w = 450.0/rows;

@@ -19,7 +19,7 @@ function RobotSimulator() {
     const mode = 'BOUNDED';
     let [isPending,setIsPending] = useState(false);
     function IsMobile(){
-        return window.innerWidth < 1300;
+        return window.innerWidth < 1360;
 
     }
     let [isMobile,setIsMobile] = useState(IsMobile());

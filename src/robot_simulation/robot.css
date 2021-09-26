@@ -1,9 +1,7 @@
 .robot-main{
     background-color: #f7ce55;
-    min-height: 100vh;
+    /*min-height: 100vh;*/
     min-width: 100vw;
-    text-align: center;
-    justify-content: center;
     padding: 20px;
     display: flex;
     flex-wrap: wrap;
@@ -25,9 +23,8 @@
     justify-content: center;
     /*padding: 20px;*/
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin: auto;
+    flex-direction: column;
+    margin: 75px 10px auto auto;
     width: 50%;
     flex: 1;
 }
@@ -102,7 +99,7 @@
     width:100px;
     height: 50px;
     border: transparent;
-    color: wheat;
+    color: white;
     font-weight: bold ;
     margin: 10px;
 }
@@ -136,8 +133,8 @@
 }
 .textarea-mobile{
     background-color: #f7ce55;
-    width: 70vw;
-    height: 40vh;
+    width: 100%;
+    height: 100%;
     min-height: 100px;
     min-width:100px;
     /*text-align: center;*/
@@ -147,14 +144,15 @@
 }
 .info{
     text-align: left;
-    margin: auto;
     min-height: 500px;
-    border: 1px solid black;
+
     padding: 10px;
+    margin: auto;
+    flex: 1;
 }
 .info-mobile{
-    text-align: left;
-    margin: auto;
-    border: 1px solid black;
+    text-align: center;
+
     padding: 5px;
+    margin: auto;
 }
