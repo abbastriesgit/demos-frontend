@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import colors from "../constants/colors";
 import ApiCalls from "./apiCalls";
 
-function Editor({setState,isPending,setIsPending,rows,columns,mode}) {
+function Editor({setState,isPending,setIsPending,rows,columns,mode,setError}) {
     let [code,setCode] = useState([
         "POSITION 0 0 EAST",
         "FORWARD",
@@ -11,7 +11,7 @@ function Editor({setState,isPending,setIsPending,rows,columns,mode}) {
         "RIGHT",
         "FORWARD"
     ]);
-    const {simulate} = ApiCalls(setIsPending,setState);
+    const {simulate} = ApiCalls(setIsPending,setState,setError);
     const listToString = (code)=>{
         let string = '';
         for (let i =0;i<code.length;i++){

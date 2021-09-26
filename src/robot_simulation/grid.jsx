@@ -10,16 +10,17 @@ function Grid({rows,columns,states}) {
         }
         cells.push(row);
     }
-    if(states.length>0){
+
+    for(let i=1;states && i<states.length-1;i++){
+        cells[states[i].y][states[i].x]["type"] = 'mid'
+        cells[states[i].y][states[i].x]["direction"] = states[i].direction;
+    }
+    if(states && states.length>0){
         cells[states[0].y][states[0].x]["type"] = 'start'
         cells[states[0].y][states[0].x]["direction"] = states[0].direction;
         cells[states[states.length-1].y][states[states.length-1].x]["type"] = 'end'
         cells[states[states.length-1].y][states[states.length-1].x]["direction"] = states[states.length-1].direction;
     }
-    // for(let i=0;i<states.length-1;i++){
-    //
-    // }
-
     return(
         <div className={'grid'}>
             <div className={'grid-container'}>

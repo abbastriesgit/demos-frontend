@@ -49,7 +49,7 @@ function App() {
                     <Route  exact={true} path="/">
                         <AboutMe/>
                     </Route>
-                    <Route  exact={true} path="/robot-simulator">
+                    <Route  exact={true} path="/demo/robot-simulator">
                         <RobotSimulator/>
                     </Route>
                 </Switch>

@@ -75,6 +75,7 @@ function MyNavbar() {
             <Button style={buttonStyle} href={"/experience"}> <b>Experience</b></Button>
             <Button style={buttonStyle} href={"/projects"}> <b>Projects</b></Button>
             <Button style={buttonStyle} href={"/connect"}> <b>Lets Connect</b></Button>
+            <Button style={buttonStyle} href={"/demo/robot-simulator"}> <b>Robot Simulator</b></Button>
             <div style={{flex:2}}></div>
         </div>);
 }

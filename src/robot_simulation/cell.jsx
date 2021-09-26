@@ -8,20 +8,33 @@ function Cell({rows,columns,state}) {
         style = {transform: "rotate(90deg)"};
     if(state.direction === 'SOUTH')
         style = {transform: "rotate(180deg)"};
-    console.log(state)
+    if(state.type && state.type === 'start')
+        style = {...style, opacity:'0.4'};
+    else if(state.type && state.type === 'end')
+        style = {...style, opacity:'1'};
+    else if(state.type && state.type === 'mid')
+        style = {...style, opacity:'0.1'};
+    else
+        style = {...style, opacity:'0'};
     const getWidth= ()=>{
+        let w = 500.0/columns;
+        return w+'px';
+    }
+    const getHeight= ()=>{
         let w = 500.0/rows;
         return w+'px';
     }
     const getWidthImg= ()=>{
+        let w = 450.0/columns;
+        return w+'px';
+    }
+    const getHeightImg= ()=>{
         let w = 450.0/rows;
         return w+'px';
     }
     return (
-        <div className={'cell'} style={{width:getWidth(),minWidth:getWidth(),height:getWidth(),minHeight:getWidth()}} >
-            {/*{state.x}, {state.y}*/}
-            {state.type && state.type==='end' &&
-            <img src = {tank} width={getWidthImg()} height={getWidthImg()} style={{...style,margin:"2px"}}/>}
+        <div className={'cell'} style={{width:getWidth(),minWidth:getWidth(),height:getHeight(),minHeight:getHeight()}} >
+            {<img src = {tank} width={getWidthImg()} height={getHeightImg()} style={{...style,margin:"2px"}}/>}
         </div>
     );
 }
