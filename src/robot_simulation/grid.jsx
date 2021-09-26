@@ -1,7 +1,7 @@
 import React from "react";
 import Row from "./row";
 
-function Grid({rows,columns,states}) {
+function Grid({isMobile ,rows,columns,states}) {
     let cells = [];
     for(let i =0;i<rows;i++){
         let row = [];
@@ -22,10 +22,10 @@ function Grid({rows,columns,states}) {
         cells[states[states.length-1].y][states[states.length-1].x]["direction"] = states[states.length-1].direction;
     }
     return(
-        <div className={'grid'}>
-            <div className={'grid-container'}>
+        <div className={isMobile?'grid-mobile':'grid'}>
+            <div className={isMobile?'grid-container-mobile':'grid-container'}>
                 {cells.map(row=>{
-                    return <Row key = {row[0].k} rows = {rows } columns = {columns} state = {row}/>
+                    return <Row isMobile={isMobile} key = {row[0].k} rows = {rows } columns = {columns} state = {row}/>
                 })}
             </div>
         </div>
